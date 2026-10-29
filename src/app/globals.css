@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fbf3e4;
+  --color-cream-2: #f4e8d0;
+  --color-paper: #fffaf0;
+  --color-ink: #191512;
+  --color-ink-soft: #4d453c;
+  --color-red: #b3261e;
+  --color-red-2: #8f1d17;
+  --color-red-soft: #e8d2c9;
+  --color-kraft: #8c6a4a;
+  --color-leaf: #2c6e31;
+
+  --font-display: var(--font-anton), "Arial Narrow", Impact, sans-serif;
+  --font-body: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-hindi: var(--font-devanagari), ui-sans-serif, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.25rem;
+}
+
+:where(a, button, [tabindex], input, textarea, select):focus-visible {
+  outline: 3px solid var(--color-red);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Reveal on scroll — respects reduced motion */
+.rise {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 0.61, 0.21, 1),
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.21, 1);
+  transition-delay: var(--rise-delay, 0ms);
+}
+.rise[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .ticker-track {
+    animation: none !important;
+  }
+}
+
+/* Hard offset "print" shadow */
+.print-shadow {
+  box-shadow: 6px 6px 0 0 var(--color-ink);
+}
+.print-shadow-red {
+  box-shadow: 6px 6px 0 0 var(--color-red);
+}
+
+/* Price ticker */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.ticker-track {
+  animation: slide 28s linear infinite;
+}
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+/* Halftone dot texture for the red band */
+.dots {
+  background-image: radial-gradient(rgba(255, 250, 240, 0.16) 1.1px, transparent 1.1px);
+  background-size: 9px 9px;
+}
+
+::selection {
+  background: var(--color-red);
+  color: var(--color-cream);
+}
