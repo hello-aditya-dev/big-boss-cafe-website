@@ -1,4 +1,5 @@
 import { BUSINESS, DIRECTIONS } from "@/lib/data";
+import { asset, srcset } from "@/lib/asset";
 import { Rise } from "./Rise";
 
 export function Hero() {
@@ -86,8 +87,8 @@ export function Hero() {
           <Rise delay={120}>
             <figure className="print-shadow relative mx-auto max-w-md rotate-[1.2deg] border-2 border-ink bg-paper p-2.5 pb-4 lg:rotate-[1.6deg]">
               <img
-                src="/images/hero-1080.jpg"
-                srcSet="/images/hero-560.jpg 560w, /images/hero-800.jpg 800w, /images/hero-1080.jpg 1080w, /images/hero-1440.jpg 1440w"
+                src={asset("/images/hero-1080.jpg")}
+                srcSet={srcset("/images/hero", [560, 800, 1080, 1440])}
                 sizes="(min-width: 1024px) 460px, 92vw"
                 alt="Big Boss Cafe in daylight — red BIG BOSS signboard, PURE VEG logo, open-air tables and the price banner"
                 width={1080}

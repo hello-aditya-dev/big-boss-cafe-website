@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { MENU, MENU_SOURCE_NOTE, BUSINESS } from "@/lib/data";
+import { asset, srcset } from "@/lib/asset";
 import { Rise } from "./Rise";
 
 export function Board() {
@@ -102,8 +103,8 @@ export function Board() {
           <Rise delay={120}>
             <figure className="print-shadow border-2 border-ink bg-cream p-3">
               <img
-                src="/images/menuboard-560.jpg"
-                srcSet="/images/menuboard-400.jpg 400w, /images/menuboard-560.jpg 560w, /images/menuboard-760.jpg 760w"
+                src={asset("/images/menuboard-560.jpg")}
+                srcSet={srcset("/images/menuboard", [400, 560, 760])}
                 sizes="(min-width: 1024px) 340px, 92vw"
                 alt="The vertical price board photographed at Big Boss Cafe — tea, coffee, sandwich, maggi and chaat with rupee prices"
                 width={560}

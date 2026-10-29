@@ -1,4 +1,5 @@
 import { BUSINESS } from "@/lib/data";
+import { asset, srcset } from "@/lib/asset";
 import { Rise } from "./Rise";
 
 const TRAITS = [
@@ -29,8 +30,8 @@ export function Place() {
             <Rise>
               <figure className="print-shadow-red mx-auto max-w-md rotate-[-1deg] border-2 border-ink bg-paper p-2.5">
                 <img
-                  src="/images/sign-900.jpg"
-                  srcSet="/images/sign-640.jpg 640w, /images/sign-900.jpg 900w, /images/sign-1200.jpg 1200w"
+                  src={asset("/images/sign-900.jpg")}
+                  srcSet={srcset("/images/sign", [640, 900, 1200])}
                   sizes="(min-width: 1024px) 440px, 92vw"
                   alt="The BIG BOSS cafe overhead signboard with red 3D letters and the PURE VEG logo"
                   width={900}
@@ -47,8 +48,8 @@ export function Place() {
             <Rise delay={140}>
               <figure className="mx-auto mt-8 max-w-md rotate-[0.8deg] border-2 border-ink bg-paper p-2.5">
                 <img
-                  src="/images/seating-900.jpg"
-                  srcSet="/images/seating-640.jpg 640w, /images/seating-900.jpg 900w, /images/seating-1200.jpg 1200w"
+                  src={asset("/images/seating-900.jpg")}
+                  srcSet={srcset("/images/seating", [640, 900, 1200])}
                   sizes="(min-width: 1024px) 440px, 92vw"
                   alt="Open-air tables and chairs under the corrugated roof at Big Boss Cafe"
                   width={900}
